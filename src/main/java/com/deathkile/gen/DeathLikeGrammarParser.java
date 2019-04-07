@@ -16,13 +16,13 @@ public class DeathLikeGrammarParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, BEGIN=5, END=6, PRINT=7, INT=8, FLOAT=9, 
-		DOUBLE=10, WHILE=11, FOR=12, CONST=13, IF=14, ELSE=15, CALL=16, RETURN=17, 
-		SEPARATOR=18, DELIMITER=19, COLON=20, GLOBAL=21, ID=22, STRING=23, NUMBER=24, 
-		NOT_WHOLE_NUMBER=25, WS=26, PLUS=27, MINUS=28, MULTIPLY=29, DIVIDE=30, 
-		PROCENT=31, EXPONENTIATION=32, NEGATION=33, AND=34, OR=35, TRUE=36, FALSE=37, 
-		EQUAL=38, NON_EQUAL=39, LESS=40, LESS_OR_EQUALS=41, GREATER=42, GREATER_OR_EQUALS=43, 
-		O_BRACKET=44, C_BRACKET=45;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, RESERVED_WORD=7, BEGIN=8, 
+		END=9, PRINT=10, INT=11, FLOAT=12, DOUBLE=13, WHILE=14, FOR=15, CONST=16, 
+		IF=17, ELSE=18, CALL=19, RETURN=20, SEPARATOR=21, DELIMITER=22, COLON=23, 
+		ID=24, STRING=25, NUMBER=26, NOT_WHOLE_NUMBER=27, WS=28, PLUS=29, MINUS=30, 
+		MULTIPLY=31, DIVIDE=32, PROCENT=33, EXPONENTIATION=34, NEGATION=35, AND=36, 
+		OR=37, EQUAL=38, NON_EQUAL=39, LESS=40, LESS_OR_EQUALS=41, GREATER=42, 
+		GREATER_OR_EQUALS=43, O_BRACKET=44, C_BRACKET=45;
 	public static final int
 		RULE_program = 0, RULE_block = 1, RULE_statement = 2, RULE_digit_expression = 3, 
 		RULE_boolean_expression = 4, RULE_type = 5, RULE_type_cast = 6, RULE_assign_var = 7, 
@@ -44,23 +44,24 @@ public class DeathLikeGrammarParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'main'", "'='", "','", "'function'", "'{'", "'}'", "'print'", 
-			"'int'", "'float'", "'double'", "'while'", "'for'", "'const'", "'if'", 
-			"'else'", "'call'", "'return'", "';'", "'.'", "':'", "'global'", null, 
-			null, null, null, null, "'+'", "'-'", "'*'", "'/'", "'%'", "'^'", "'!'", 
-			"'&'", "'||'", "'true'", "'false'", "'=='", "'!='", "'<'", "'<='", "'>'", 
-			"'>='", "'('", "')'"
+			null, "'main'", "'true'", "'false'", "'='", "','", "'function'", null, 
+			"'{'", "'}'", "'print'", "'int'", "'float'", "'double'", "'while'", "'for'", 
+			"'const'", "'if'", "'else'", "'call'", "'return'", "';'", "'.'", "':'", 
+			null, null, null, null, null, "'+'", "'-'", "'*'", "'/'", "'%'", "'^'", 
+			"'!'", "'&&'", "'||'", "'=='", "'!='", "'<'", "'<='", "'>'", "'>='", 
+			"'('", "')'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, null, "BEGIN", "END", "PRINT", "INT", "FLOAT", 
-			"DOUBLE", "WHILE", "FOR", "CONST", "IF", "ELSE", "CALL", "RETURN", "SEPARATOR", 
-			"DELIMITER", "COLON", "GLOBAL", "ID", "STRING", "NUMBER", "NOT_WHOLE_NUMBER", 
-			"WS", "PLUS", "MINUS", "MULTIPLY", "DIVIDE", "PROCENT", "EXPONENTIATION", 
-			"NEGATION", "AND", "OR", "TRUE", "FALSE", "EQUAL", "NON_EQUAL", "LESS", 
-			"LESS_OR_EQUALS", "GREATER", "GREATER_OR_EQUALS", "O_BRACKET", "C_BRACKET"
+			null, null, null, null, null, null, null, "RESERVED_WORD", "BEGIN", "END", 
+			"PRINT", "INT", "FLOAT", "DOUBLE", "WHILE", "FOR", "CONST", "IF", "ELSE", 
+			"CALL", "RETURN", "SEPARATOR", "DELIMITER", "COLON", "ID", "STRING", 
+			"NUMBER", "NOT_WHOLE_NUMBER", "WS", "PLUS", "MINUS", "MULTIPLY", "DIVIDE", 
+			"PROCENT", "EXPONENTIATION", "NEGATION", "AND", "OR", "EQUAL", "NON_EQUAL", 
+			"LESS", "LESS_OR_EQUALS", "GREATER", "GREATER_OR_EQUALS", "O_BRACKET", 
+			"C_BRACKET"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -501,8 +502,6 @@ public class DeathLikeGrammarParser extends Parser {
 		}
 		public TerminalNode C_BRACKET() { return getToken(DeathLikeGrammarParser.C_BRACKET, 0); }
 		public TerminalNode NEGATION() { return getToken(DeathLikeGrammarParser.NEGATION, 0); }
-		public TerminalNode TRUE() { return getToken(DeathLikeGrammarParser.TRUE, 0); }
-		public TerminalNode FALSE() { return getToken(DeathLikeGrammarParser.FALSE, 0); }
 		public TerminalNode AND() { return getToken(DeathLikeGrammarParser.AND, 0); }
 		public TerminalNode OR() { return getToken(DeathLikeGrammarParser.OR, 0); }
 		public Boolean_expressionContext(ParserRuleContext parent, int invokingState) {
@@ -576,19 +575,19 @@ public class DeathLikeGrammarParser extends Parser {
 				setState(95);
 				match(NEGATION);
 				setState(96);
-				boolean_expression(5);
+				boolean_expression(4);
 				}
 				break;
 			case 4:
 				{
 				setState(97);
-				match(TRUE);
+				match(T__1);
 				}
 				break;
 			case 5:
 				{
 				setState(98);
-				match(FALSE);
+				match(T__2);
 				}
 				break;
 			}
@@ -609,7 +608,7 @@ public class DeathLikeGrammarParser extends Parser {
 						_localctx = new Boolean_expressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_boolean_expression);
 						setState(101);
-						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
+						if (!(precpred(_ctx, 7))) throw new FailedPredicateException(this, "precpred(_ctx, 7)");
 						setState(102);
 						_la = _input.LA(1);
 						if ( !(_la==EQUAL || _la==NON_EQUAL) ) {
@@ -621,7 +620,7 @@ public class DeathLikeGrammarParser extends Parser {
 							consume();
 						}
 						setState(103);
-						boolean_expression(3);
+						boolean_expression(8);
 						}
 						break;
 					case 2:
@@ -828,7 +827,7 @@ public class DeathLikeGrammarParser extends Parser {
 			setState(122);
 			match(ID);
 			setState(123);
-			match(T__1);
+			match(T__3);
 			setState(131);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,8,_ctx) ) {
@@ -928,7 +927,7 @@ public class DeathLikeGrammarParser extends Parser {
 			setState(139);
 			match(ID);
 			setState(140);
-			match(T__1);
+			match(T__3);
 			setState(147);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
@@ -1053,7 +1052,7 @@ public class DeathLikeGrammarParser extends Parser {
 			setState(154);
 			match(ID);
 			setState(155);
-			match(T__1);
+			match(T__3);
 			setState(162);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,11,_ctx) ) {
@@ -1408,7 +1407,7 @@ public class DeathLikeGrammarParser extends Parser {
 					setState(195);
 					match(ID);
 					setState(196);
-					match(T__2);
+					match(T__4);
 					}
 					} 
 				}
@@ -1477,7 +1476,7 @@ public class DeathLikeGrammarParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(208);
-			match(T__3);
+			match(T__5);
 			setState(209);
 			type();
 			setState(210);
@@ -1556,7 +1555,7 @@ public class DeathLikeGrammarParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(218);
-			match(T__3);
+			match(T__5);
 			setState(219);
 			match(ID);
 			setState(223);
@@ -1811,7 +1810,7 @@ public class DeathLikeGrammarParser extends Parser {
 					setState(253);
 					match(ID);
 					setState(254);
-					match(T__2);
+					match(T__4);
 					}
 					} 
 				}
@@ -1996,10 +1995,11 @@ public class DeathLikeGrammarParser extends Parser {
 			}
 			setState(277);
 			program();
+			1
 			setState(283);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==T__3) {
+			while (_la==T__5) {
 				{
 				setState(281);
 				_errHandler.sync(this);
@@ -2054,7 +2054,7 @@ public class DeathLikeGrammarParser extends Parser {
 	private boolean boolean_expression_sempred(Boolean_expressionContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 1:
-			return precpred(_ctx, 2);
+			return precpred(_ctx, 7);
 		case 2:
 			return precpred(_ctx, 1);
 		}
@@ -2084,70 +2084,70 @@ public class DeathLikeGrammarParser extends Parser {
 		"\13\26\3\26\3\26\3\26\3\27\3\27\3\27\3\27\3\27\5\27\u010f\n\27\3\30\3"+
 		"\30\7\30\u0113\n\30\f\30\16\30\u0116\13\30\3\30\3\30\3\30\3\30\7\30\u011c"+
 		"\n\30\f\30\16\30\u011f\13\30\3\30\2\4\b\n\31\2\4\6\b\n\f\16\20\22\24\26"+
-		"\30\32\34\36 \"$&(*,.\2\t\3\2\35\"\3\2(-\3\2()\3\2$%\3\2\n\f\3\2\30\33"+
-		"\4\2\30\30\32\33\2\u012d\2\60\3\2\2\2\4\63\3\2\2\2\6D\3\2\2\2\bN\3\2\2"+
+		"\30\32\34\36 \"$&(*,.\2\t\3\2\37$\3\2(-\3\2()\3\2&\'\3\2\r\17\3\2\32\35"+
+		"\4\2\32\32\34\35\2\u012d\2\60\3\2\2\2\4\63\3\2\2\2\6D\3\2\2\2\bN\3\2\2"+
 		"\2\ne\3\2\2\2\fr\3\2\2\2\16t\3\2\2\2\20y\3\2\2\2\22\u008a\3\2\2\2\24\u0099"+
 		"\3\2\2\2\26\u009c\3\2\2\2\30\u00a6\3\2\2\2\32\u00ac\3\2\2\2\34\u00b2\3"+
 		"\2\2\2\36\u00ba\3\2\2\2 \u00c3\3\2\2\2\"\u00d2\3\2\2\2$\u00dc\3\2\2\2"+
 		"&\u00e7\3\2\2\2(\u00f3\3\2\2\2*\u00fe\3\2\2\2,\u0109\3\2\2\2.\u0114\3"+
-		"\2\2\2\60\61\7\3\2\2\61\62\5\4\3\2\62\3\3\2\2\2\63\67\7\7\2\2\64\66\5"+
+		"\2\2\2\60\61\7\3\2\2\61\62\5\4\3\2\62\3\3\2\2\2\63\67\7\n\2\2\64\66\5"+
 		"\6\4\2\65\64\3\2\2\2\669\3\2\2\2\67\65\3\2\2\2\678\3\2\2\28:\3\2\2\29"+
-		"\67\3\2\2\2:;\7\b\2\2;\5\3\2\2\2<E\5\20\t\2=E\5\24\13\2>E\5\22\n\2?E\5"+
-		"\32\16\2@E\5\34\17\2AE\5,\27\2BE\5\30\r\2CE\5\36\20\2D<\3\2\2\2D=\3\2"+
-		"\2\2D>\3\2\2\2D?\3\2\2\2D@\3\2\2\2DA\3\2\2\2DB\3\2\2\2DC\3\2\2\2E\7\3"+
-		"\2\2\2FG\b\5\1\2GO\7\30\2\2HI\7.\2\2IJ\5\b\5\2JK\7/\2\2KO\3\2\2\2LO\7"+
-		"\32\2\2MO\7\33\2\2NF\3\2\2\2NH\3\2\2\2NL\3\2\2\2NM\3\2\2\2OU\3\2\2\2P"+
-		"Q\f\7\2\2QR\t\2\2\2RT\5\b\5\bSP\3\2\2\2TW\3\2\2\2US\3\2\2\2UV\3\2\2\2"+
+		"\67\3\2\2\2:;\7\13\2\2;\5\3\2\2\2<E\5\20\t\2=E\5\24\13\2>E\5\22\n\2?E"+
+		"\5\32\16\2@E\5\34\17\2AE\5,\27\2BE\5\30\r\2CE\5\36\20\2D<\3\2\2\2D=\3"+
+		"\2\2\2D>\3\2\2\2D?\3\2\2\2D@\3\2\2\2DA\3\2\2\2DB\3\2\2\2DC\3\2\2\2E\7"+
+		"\3\2\2\2FG\b\5\1\2GO\7\32\2\2HI\7.\2\2IJ\5\b\5\2JK\7/\2\2KO\3\2\2\2LO"+
+		"\7\34\2\2MO\7\35\2\2NF\3\2\2\2NH\3\2\2\2NL\3\2\2\2NM\3\2\2\2OU\3\2\2\2"+
+		"PQ\f\7\2\2QR\t\2\2\2RT\5\b\5\bSP\3\2\2\2TW\3\2\2\2US\3\2\2\2UV\3\2\2\2"+
 		"V\t\3\2\2\2WU\3\2\2\2XY\b\6\1\2YZ\5\b\5\2Z[\t\3\2\2[\\\5\b\5\2\\f\3\2"+
-		"\2\2]^\7.\2\2^_\5\n\6\2_`\7/\2\2`f\3\2\2\2ab\7#\2\2bf\5\n\6\7cf\7&\2\2"+
-		"df\7\'\2\2eX\3\2\2\2e]\3\2\2\2ea\3\2\2\2ec\3\2\2\2ed\3\2\2\2fo\3\2\2\2"+
-		"gh\f\4\2\2hi\t\4\2\2in\5\n\6\5jk\f\3\2\2kl\t\5\2\2ln\5\n\6\4mg\3\2\2\2"+
-		"mj\3\2\2\2nq\3\2\2\2om\3\2\2\2op\3\2\2\2p\13\3\2\2\2qo\3\2\2\2rs\t\6\2"+
-		"\2s\r\3\2\2\2tu\7.\2\2uv\5\f\7\2vw\7/\2\2w\17\3\2\2\2xz\7\17\2\2yx\3\2"+
-		"\2\2yz\3\2\2\2z{\3\2\2\2{|\5\f\7\2|}\7\30\2\2}\u0085\7\4\2\2~\u0086\7"+
-		"\30\2\2\177\u0086\5\b\5\2\u0080\u0081\5\16\b\2\u0081\u0082\7.\2\2\u0082"+
+		"\2\2]^\7.\2\2^_\5\n\6\2_`\7/\2\2`f\3\2\2\2ab\7%\2\2bf\5\n\6\6cf\7\4\2"+
+		"\2df\7\5\2\2eX\3\2\2\2e]\3\2\2\2ea\3\2\2\2ec\3\2\2\2ed\3\2\2\2fo\3\2\2"+
+		"\2gh\f\t\2\2hi\t\4\2\2in\5\n\6\njk\f\3\2\2kl\t\5\2\2ln\5\n\6\4mg\3\2\2"+
+		"\2mj\3\2\2\2nq\3\2\2\2om\3\2\2\2op\3\2\2\2p\13\3\2\2\2qo\3\2\2\2rs\t\6"+
+		"\2\2s\r\3\2\2\2tu\7.\2\2uv\5\f\7\2vw\7/\2\2w\17\3\2\2\2xz\7\22\2\2yx\3"+
+		"\2\2\2yz\3\2\2\2z{\3\2\2\2{|\5\f\7\2|}\7\32\2\2}\u0085\7\6\2\2~\u0086"+
+		"\7\32\2\2\177\u0086\5\b\5\2\u0080\u0081\5\16\b\2\u0081\u0082\7.\2\2\u0082"+
 		"\u0083\5\b\5\2\u0083\u0084\7/\2\2\u0084\u0086\3\2\2\2\u0085~\3\2\2\2\u0085"+
-		"\177\3\2\2\2\u0085\u0080\3\2\2\2\u0086\u0087\3\2\2\2\u0087\u0088\7\24"+
-		"\2\2\u0088\21\3\2\2\2\u0089\u008b\7\17\2\2\u008a\u0089\3\2\2\2\u008a\u008b"+
-		"\3\2\2\2\u008b\u008c\3\2\2\2\u008c\u008d\5\f\7\2\u008d\u008e\7\30\2\2"+
-		"\u008e\u0095\7\4\2\2\u008f\u0096\5,\27\2\u0090\u0091\5\16\b\2\u0091\u0092"+
+		"\177\3\2\2\2\u0085\u0080\3\2\2\2\u0086\u0087\3\2\2\2\u0087\u0088\7\27"+
+		"\2\2\u0088\21\3\2\2\2\u0089\u008b\7\22\2\2\u008a\u0089\3\2\2\2\u008a\u008b"+
+		"\3\2\2\2\u008b\u008c\3\2\2\2\u008c\u008d\5\f\7\2\u008d\u008e\7\32\2\2"+
+		"\u008e\u0095\7\6\2\2\u008f\u0096\5,\27\2\u0090\u0091\5\16\b\2\u0091\u0092"+
 		"\7.\2\2\u0092\u0093\5,\27\2\u0093\u0094\7/\2\2\u0094\u0096\3\2\2\2\u0095"+
-		"\u008f\3\2\2\2\u0095\u0090\3\2\2\2\u0096\u0097\3\2\2\2\u0097\u0098\7\24"+
-		"\2\2\u0098\23\3\2\2\2\u0099\u009a\5\26\f\2\u009a\u009b\7\24\2\2\u009b"+
-		"\25\3\2\2\2\u009c\u009d\7\30\2\2\u009d\u00a4\7\4\2\2\u009e\u00a5\5\b\5"+
+		"\u008f\3\2\2\2\u0095\u0090\3\2\2\2\u0096\u0097\3\2\2\2\u0097\u0098\7\27"+
+		"\2\2\u0098\23\3\2\2\2\u0099\u009a\5\26\f\2\u009a\u009b\7\27\2\2\u009b"+
+		"\25\3\2\2\2\u009c\u009d\7\32\2\2\u009d\u00a4\7\6\2\2\u009e\u00a5\5\b\5"+
 		"\2\u009f\u00a0\5\16\b\2\u00a0\u00a1\7.\2\2\u00a1\u00a2\5\b\5\2\u00a2\u00a3"+
 		"\7/\2\2\u00a3\u00a5\3\2\2\2\u00a4\u009e\3\2\2\2\u00a4\u009f\3\2\2\2\u00a5"+
-		"\27\3\2\2\2\u00a6\u00a7\7\t\2\2\u00a7\u00a8\7.\2\2\u00a8\u00a9\t\7\2\2"+
-		"\u00a9\u00aa\7/\2\2\u00aa\u00ab\7\24\2\2\u00ab\31\3\2\2\2\u00ac\u00ad"+
-		"\7\r\2\2\u00ad\u00ae\7.\2\2\u00ae\u00af\5\n\6\2\u00af\u00b0\7/\2\2\u00b0"+
-		"\u00b1\5\4\3\2\u00b1\33\3\2\2\2\u00b2\u00b3\7\20\2\2\u00b3\u00b4\7.\2"+
+		"\27\3\2\2\2\u00a6\u00a7\7\f\2\2\u00a7\u00a8\7.\2\2\u00a8\u00a9\t\7\2\2"+
+		"\u00a9\u00aa\7/\2\2\u00aa\u00ab\7\27\2\2\u00ab\31\3\2\2\2\u00ac\u00ad"+
+		"\7\20\2\2\u00ad\u00ae\7.\2\2\u00ae\u00af\5\n\6\2\u00af\u00b0\7/\2\2\u00b0"+
+		"\u00b1\5\4\3\2\u00b1\33\3\2\2\2\u00b2\u00b3\7\23\2\2\u00b3\u00b4\7.\2"+
 		"\2\u00b4\u00b5\5\n\6\2\u00b5\u00b6\7/\2\2\u00b6\u00b7\5\4\3\2\u00b7\u00b8"+
-		"\7\21\2\2\u00b8\u00b9\5\4\3\2\u00b9\35\3\2\2\2\u00ba\u00bb\7\16\2\2\u00bb"+
-		"\u00bc\7.\2\2\u00bc\u00bd\5\20\t\2\u00bd\u00be\5\n\6\2\u00be\u00bf\7\24"+
+		"\7\24\2\2\u00b8\u00b9\5\4\3\2\u00b9\35\3\2\2\2\u00ba\u00bb\7\21\2\2\u00bb"+
+		"\u00bc\7.\2\2\u00bc\u00bd\5\20\t\2\u00bd\u00be\5\n\6\2\u00be\u00bf\7\27"+
 		"\2\2\u00bf\u00c0\5\26\f\2\u00c0\u00c1\7/\2\2\u00c1\u00c2\5\4\3\2\u00c2"+
-		"\37\3\2\2\2\u00c3\u00ca\7.\2\2\u00c4\u00c5\5\f\7\2\u00c5\u00c6\7\30\2"+
-		"\2\u00c6\u00c7\7\5\2\2\u00c7\u00c9\3\2\2\2\u00c8\u00c4\3\2\2\2\u00c9\u00cc"+
+		"\37\3\2\2\2\u00c3\u00ca\7.\2\2\u00c4\u00c5\5\f\7\2\u00c5\u00c6\7\32\2"+
+		"\2\u00c6\u00c7\7\7\2\2\u00c7\u00c9\3\2\2\2\u00c8\u00c4\3\2\2\2\u00c9\u00cc"+
 		"\3\2\2\2\u00ca\u00c8\3\2\2\2\u00ca\u00cb\3\2\2\2\u00cb\u00cd\3\2\2\2\u00cc"+
-		"\u00ca\3\2\2\2\u00cd\u00ce\5\f\7\2\u00ce\u00cf\7\30\2\2\u00cf\u00d0\3"+
-		"\2\2\2\u00d0\u00d1\7/\2\2\u00d1!\3\2\2\2\u00d2\u00d3\7\6\2\2\u00d3\u00d4"+
-		"\5\f\7\2\u00d4\u00d8\7\30\2\2\u00d5\u00d9\5 \21\2\u00d6\u00d7\7.\2\2\u00d7"+
+		"\u00ca\3\2\2\2\u00cd\u00ce\5\f\7\2\u00ce\u00cf\7\32\2\2\u00cf\u00d0\3"+
+		"\2\2\2\u00d0\u00d1\7/\2\2\u00d1!\3\2\2\2\u00d2\u00d3\7\b\2\2\u00d3\u00d4"+
+		"\5\f\7\2\u00d4\u00d8\7\32\2\2\u00d5\u00d9\5 \21\2\u00d6\u00d7\7.\2\2\u00d7"+
 		"\u00d9\7/\2\2\u00d8\u00d5\3\2\2\2\u00d8\u00d6\3\2\2\2\u00d9\u00da\3\2"+
-		"\2\2\u00da\u00db\5&\24\2\u00db#\3\2\2\2\u00dc\u00dd\7\6\2\2\u00dd\u00e1"+
-		"\7\30\2\2\u00de\u00e2\5 \21\2\u00df\u00e0\7.\2\2\u00e0\u00e2\7/\2\2\u00e1"+
+		"\2\2\u00da\u00db\5&\24\2\u00db#\3\2\2\2\u00dc\u00dd\7\b\2\2\u00dd\u00e1"+
+		"\7\32\2\2\u00de\u00e2\5 \21\2\u00df\u00e0\7.\2\2\u00e0\u00e2\7/\2\2\u00e1"+
 		"\u00de\3\2\2\2\u00e1\u00df\3\2\2\2\u00e2\u00e5\3\2\2\2\u00e3\u00e6\5("+
 		"\25\2\u00e4\u00e6\5\4\3\2\u00e5\u00e3\3\2\2\2\u00e5\u00e4\3\2\2\2\u00e6"+
-		"%\3\2\2\2\u00e7\u00eb\7\7\2\2\u00e8\u00ea\5\6\4\2\u00e9\u00e8\3\2\2\2"+
+		"%\3\2\2\2\u00e7\u00eb\7\n\2\2\u00e8\u00ea\5\6\4\2\u00e9\u00e8\3\2\2\2"+
 		"\u00ea\u00ed\3\2\2\2\u00eb\u00e9\3\2\2\2\u00eb\u00ec\3\2\2\2\u00ec\u00ee"+
-		"\3\2\2\2\u00ed\u00eb\3\2\2\2\u00ee\u00ef\7\23\2\2\u00ef\u00f0\t\b\2\2"+
-		"\u00f0\u00f1\7\24\2\2\u00f1\u00f2\7\b\2\2\u00f2\'\3\2\2\2\u00f3\u00f7"+
-		"\7\7\2\2\u00f4\u00f6\5\6\4\2\u00f5\u00f4\3\2\2\2\u00f6\u00f9\3\2\2\2\u00f7"+
+		"\3\2\2\2\u00ed\u00eb\3\2\2\2\u00ee\u00ef\7\26\2\2\u00ef\u00f0\t\b\2\2"+
+		"\u00f0\u00f1\7\27\2\2\u00f1\u00f2\7\13\2\2\u00f2\'\3\2\2\2\u00f3\u00f7"+
+		"\7\n\2\2\u00f4\u00f6\5\6\4\2\u00f5\u00f4\3\2\2\2\u00f6\u00f9\3\2\2\2\u00f7"+
 		"\u00f5\3\2\2\2\u00f7\u00f8\3\2\2\2\u00f8\u00fa\3\2\2\2\u00f9\u00f7\3\2"+
-		"\2\2\u00fa\u00fb\7\23\2\2\u00fb\u00fc\7\24\2\2\u00fc\u00fd\7\b\2\2\u00fd"+
-		")\3\2\2\2\u00fe\u0103\7.\2\2\u00ff\u0100\7\30\2\2\u0100\u0102\7\5\2\2"+
+		"\2\2\u00fa\u00fb\7\26\2\2\u00fb\u00fc\7\27\2\2\u00fc\u00fd\7\13\2\2\u00fd"+
+		")\3\2\2\2\u00fe\u0103\7.\2\2\u00ff\u0100\7\32\2\2\u0100\u0102\7\7\2\2"+
 		"\u0101\u00ff\3\2\2\2\u0102\u0105\3\2\2\2\u0103\u0101\3\2\2\2\u0103\u0104"+
-		"\3\2\2\2\u0104\u0106\3\2\2\2\u0105\u0103\3\2\2\2\u0106\u0107\7\30\2\2"+
-		"\u0107\u0108\7/\2\2\u0108+\3\2\2\2\u0109\u010a\7\22\2\2\u010a\u010e\7"+
-		"\30\2\2\u010b\u010f\5*\26\2\u010c\u010d\7.\2\2\u010d\u010f\7/\2\2\u010e"+
+		"\3\2\2\2\u0104\u0106\3\2\2\2\u0105\u0103\3\2\2\2\u0106\u0107\7\32\2\2"+
+		"\u0107\u0108\7/\2\2\u0108+\3\2\2\2\u0109\u010a\7\25\2\2\u010a\u010e\7"+
+		"\32\2\2\u010b\u010f\5*\26\2\u010c\u010d\7.\2\2\u010d\u010f\7/\2\2\u010e"+
 		"\u010b\3\2\2\2\u010e\u010c\3\2\2\2\u010f-\3\2\2\2\u0110\u0113\5\20\t\2"+
 		"\u0111\u0113\5\24\13\2\u0112\u0110\3\2\2\2\u0112\u0111\3\2\2\2\u0113\u0116"+
 		"\3\2\2\2\u0114\u0112\3\2\2\2\u0114\u0115\3\2\2\2\u0115\u0117\3\2\2\2\u0116"+

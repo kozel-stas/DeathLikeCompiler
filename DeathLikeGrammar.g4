@@ -14,6 +14,9 @@ method_invokation |
 print |
 for_cicle;
 
+RESERVED_WORD : 'true' | 'false' ;
+
+
 BEGIN : '{';
 END : '}';
 PRINT: 'print';
@@ -38,8 +41,6 @@ DELIMITER : '.';
 
 COLON : ':';
 
-GLOBAL: 'global';
-
 ID : [a-zA-Z_][a-zA-Z_0-9]*;
 STRING : '"'(.)+?'"';
 NUMBER : [0-9]+;
@@ -54,10 +55,8 @@ PROCENT: '%';
 EXPONENTIATION: '^';
 
 NEGATION : '!';
-AND : '&';
+AND : '&&';
 OR: '||';
-TRUE: 'true';
-FALSE: 'false';
 
 EQUAL: '==';
 NON_EQUAL: '!=';
@@ -76,12 +75,12 @@ digit_expression:	digit_expression (MULTIPLY|DIVIDE|PLUS|MINUS|PROCENT|EXPONENTI
     |   NOT_WHOLE_NUMBER
     ;
 
-boolean_expression: digit_expression (EQUAL|NON_EQUAL|LESS|LESS_OR_EQUALS|GREATER|GREATER_OR_EQUALS) digit_expression
+boolean_expression: boolean_expression (EQUAL|NON_EQUAL) boolean_expression
+    | digit_expression (EQUAL|NON_EQUAL|LESS|LESS_OR_EQUALS|GREATER|GREATER_OR_EQUALS) digit_expression
     | O_BRACKET boolean_expression C_BRACKET
     | NEGATION boolean_expression
-    | TRUE
-    | FALSE
-    | boolean_expression (EQUAL|NON_EQUAL) boolean_expression
+    | 'true'
+    | 'false'
     | boolean_expression (AND|OR) boolean_expression
     ;
 

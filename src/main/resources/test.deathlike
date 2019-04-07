@@ -7,7 +7,7 @@ main {
         double w = 34.4848;
         a = (int) (w + q);
         const int b = call sub(a);
-        while (a < 3) {
+        while (a < 3 && a < 3 == true) {
             a = a + 1;
             print("ROT");
         }
