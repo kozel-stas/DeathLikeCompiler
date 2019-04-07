@@ -1,0 +1,26 @@
+int d = 5;
+
+main {
+        print(1);
+        int a = 1;
+        float q = 25.4848 + 78 * 5;
+        double w = 34.4848;
+        a = (int) (w + q);
+        const int b = call sub(a);
+        while (a < 3) {
+            a = a + 1;
+            print("ROT");
+        }
+        if (a == 3) {
+                print("YES, dmwodo");
+        } else {
+        }
+        for (int h = 0; h<10; h = h+1){
+            print("lox");
+        }
+}
+
+function int sub(int b) {
+        print(b);
+        return b;
+}
