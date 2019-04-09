@@ -1,9 +1,9 @@
-package com.deathkile;
+package com.deathlike;
 
-import com.deathkile.core.impl.DeathLikeGrammarParserImpl;
-import com.deathkile.core.impl.DeathLikeGrammarVisitorImpl;
-import com.deathkile.gen.DeathLikeGrammarLexer;
-import com.deathkile.gen.DeathLikeGrammarVisitor;
+import com.deathlike.core.impl.DeathLikeGrammarParserImpl;
+import com.deathlike.core.impl.DeathLikeGrammarVisitorImpl;
+import com.deathlike.gen.DeathLikeGrammarLexer;
+import com.deathlike.gen.DeathLikeGrammarVisitor;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;

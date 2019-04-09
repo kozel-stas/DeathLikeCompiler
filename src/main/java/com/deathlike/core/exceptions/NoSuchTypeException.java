@@ -1,4 +1,4 @@
-package com.deathkile.core.exceptions;
+package com.deathlike.core.exceptions;
 
 public class NoSuchTypeException extends RuntimeException {
 

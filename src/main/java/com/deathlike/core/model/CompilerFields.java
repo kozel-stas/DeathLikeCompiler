@@ -1,4 +1,4 @@
-package com.deathkile.core.model;
+package com.deathlike.core.model;
 
 public class CompilerFields {
 

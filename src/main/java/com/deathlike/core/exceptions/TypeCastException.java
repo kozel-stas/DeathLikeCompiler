@@ -1,7 +1,7 @@
-package com.deathkile.core.exceptions;
+package com.deathlike.core.exceptions;
 
-import com.deathkile.core.model.MethodType;
-import com.deathkile.core.model.VariableType;
+import com.deathlike.core.model.MethodType;
+import com.deathlike.core.model.VariableType;
 
 public class TypeCastException extends RuntimeException {
 

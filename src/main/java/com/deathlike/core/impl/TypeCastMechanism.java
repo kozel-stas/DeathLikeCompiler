@@ -1,12 +1,12 @@
-package com.deathkile.core.impl;
+package com.deathlike.core.impl;
 
-import com.deathkile.core.MethodVariablesRegister;
-import com.deathkile.core.exceptions.NoSuchVariableException;
-import com.deathkile.core.exceptions.TypeCastException;
-import com.deathkile.core.model.MethodType;
-import com.deathkile.core.model.Variable;
-import com.deathkile.core.model.VariableType;
-import com.deathkile.gen.DeathLikeGrammarParser;
+import com.deathlike.core.MethodVariablesRegister;
+import com.deathlike.core.exceptions.NoSuchVariableException;
+import com.deathlike.core.exceptions.TypeCastException;
+import com.deathlike.core.model.MethodType;
+import com.deathlike.core.model.Variable;
+import com.deathlike.core.model.VariableType;
+import com.deathlike.gen.DeathLikeGrammarParser;
 
 public class TypeCastMechanism {
 

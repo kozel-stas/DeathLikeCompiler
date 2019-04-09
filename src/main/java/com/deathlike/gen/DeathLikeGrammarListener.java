@@ -1,4 +1,4 @@
-package com.deathkile.gen;// Generated from C:/Users/a4tec/IdeaProjects/DeathLikeCompiler\DeathLikeGrammar.g4 by ANTLR 4.7.2
+package com.deathlike.gen;// Generated from C:/Users/a4tec/IdeaProjects/DeathLikeCompiler\DeathLikeGrammar.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**

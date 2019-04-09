@@ -1,8 +1,8 @@
-package com.deathkile.core.impl;
+package com.deathlike.core.impl;
 
-import com.deathkile.core.MethodVariablesRegister;
-import com.deathkile.core.model.Method;
-import com.deathkile.core.model.Variable;
+import com.deathlike.core.MethodVariablesRegister;
+import com.deathlike.core.model.Method;
+import com.deathlike.core.model.Variable;
 import com.google.common.base.Preconditions;
 
 import java.util.ArrayList;
@@ -78,7 +78,7 @@ public class MethodVariablesRegisterImpl implements MethodVariablesRegister {
         return null;
     }
 
-    public void registerNew​​VisibilityArea() {
+    public void registerNewVisibilityArea() {
         Map<Integer, Set<Variable>> methodVariables = Preconditions.checkNotNull(variables.get(variables.size() - 1));
         methodVariables.put(methodVariables.size(), new HashSet<>());
     }

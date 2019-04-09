@@ -1,7 +1,7 @@
-package com.deathkile.core;
+package com.deathlike.core;
 
-import com.deathkile.core.model.Method;
-import com.deathkile.core.model.Variable;
+import com.deathlike.core.model.Method;
+import com.deathlike.core.model.Variable;
 
 public interface MethodVariablesRegister {
 
@@ -17,7 +17,7 @@ public interface MethodVariablesRegister {
 
     Variable getVariable(String ID);
 
-    void registerNew​​VisibilityArea();
+    void registerNewVisibilityArea();
 
     boolean registerVisibilityAreaEnded();
 

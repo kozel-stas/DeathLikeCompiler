@@ -1,6 +1,6 @@
-package com.deathkile.core.model;
+package com.deathlike.core.model;
 
-import com.deathkile.gen.DeathLikeGrammarParser;
+import com.deathlike.gen.DeathLikeGrammarParser;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 

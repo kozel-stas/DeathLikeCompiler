@@ -1,6 +1,6 @@
-package com.deathkile.core.impl;
+package com.deathlike.core.impl;
 
-import com.deathkile.gen.DeathLikeGrammarParser;
+import com.deathlike.gen.DeathLikeGrammarParser;
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.TokenStream;
 

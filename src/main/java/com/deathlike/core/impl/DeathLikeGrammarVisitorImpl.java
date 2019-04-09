@@ -1,19 +1,19 @@
-package com.deathkile.core.impl;
+package com.deathlike.core.impl;
 
-import com.deathkile.core.MethodVariablesRegister;
-import com.deathkile.core.exceptions.ConstModifyException;
-import com.deathkile.core.exceptions.NoSuchTypeException;
-import com.deathkile.core.exceptions.NoSuchVariableException;
-import com.deathkile.core.exceptions.TypeCastException;
-import com.deathkile.core.exceptions.VariableAlreadyRegistered;
-import com.deathkile.core.model.CompilerFields;
-import com.deathkile.core.model.Method;
-import com.deathkile.core.model.MethodType;
-import com.deathkile.core.model.Statement;
-import com.deathkile.core.model.Variable;
-import com.deathkile.core.model.VariableType;
-import com.deathkile.gen.DeathLikeGrammarParser;
-import com.deathkile.gen.DeathLikeGrammarVisitor;
+import com.deathlike.core.MethodVariablesRegister;
+import com.deathlike.core.exceptions.ConstModifyException;
+import com.deathlike.core.exceptions.NoSuchTypeException;
+import com.deathlike.core.exceptions.NoSuchVariableException;
+import com.deathlike.core.exceptions.TypeCastException;
+import com.deathlike.core.exceptions.VariableAlreadyRegistered;
+import com.deathlike.core.model.CompilerFields;
+import com.deathlike.core.model.Method;
+import com.deathlike.core.model.MethodType;
+import com.deathlike.core.model.Statement;
+import com.deathlike.core.model.Variable;
+import com.deathlike.core.model.VariableType;
+import com.deathlike.gen.DeathLikeGrammarParser;
+import com.deathlike.gen.DeathLikeGrammarVisitor;
 import com.google.common.base.Preconditions;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.Token;
@@ -48,7 +48,7 @@ public class DeathLikeGrammarVisitorImpl implements DeathLikeGrammarVisitor<Stri
 
     @Override
     public String visitBlock(DeathLikeGrammarParser.BlockContext ctx) {
-        register.registerNew​​VisibilityArea();
+        register.registerNewVisibilityArea();
         StringBuilder out = new StringBuilder(CompilerFields.BEGIN).append(invokeAllStatementsForBlock(ctx.statement()));
         out.append(CompilerFields.END);
         register.registerVisibilityAreaEnded();
@@ -217,7 +217,7 @@ public class DeathLikeGrammarVisitorImpl implements DeathLikeGrammarVisitor<Stri
     @Override
     public String visitFor_cicle(DeathLikeGrammarParser.For_cicleContext ctx) {
         StringBuilder out = new StringBuilder();
-        register.registerNew​​VisibilityArea();
+        register.registerNewVisibilityArea();
         out.append(String.format(CompilerFields.FOR_CICLE, ctx.assign_var().accept(this), ctx.boolean_expression().accept(this), ctx.reasign_var().accept(this)));
         out.append(ctx.block().accept(this));
         register.registerVisibilityAreaEnded();
@@ -274,7 +274,7 @@ public class DeathLikeGrammarVisitorImpl implements DeathLikeGrammarVisitor<Stri
 
     @Override
     public String visitBlock_return(DeathLikeGrammarParser.Block_returnContext ctx) {
-        register.registerNew​​VisibilityArea();
+        register.registerNewVisibilityArea();
         Method method = Preconditions.checkNotNull(register.getRegisteredMethod(((DeathLikeGrammarParser.Subprogram_returnContext) ctx.parent).ID().getText()), new NoSuchMethodException(""));
         StringBuilder out = new StringBuilder(CompilerFields.BEGIN).append(invokeAllStatementsForBlock(ctx.statement()));
         out.append(CompilerFields.RETURN);
@@ -289,7 +289,7 @@ public class DeathLikeGrammarVisitorImpl implements DeathLikeGrammarVisitor<Stri
 
     @Override
     public String visitBlock_non_return(DeathLikeGrammarParser.Block_non_returnContext ctx) {
-        register.registerNew​​VisibilityArea();
+        register.registerNewVisibilityArea();
         StringBuilder out = new StringBuilder(CompilerFields.BEGIN).append(invokeAllStatementsForBlock(ctx.statement()));
         out.append(CompilerFields.RETURN);
         out.append(CompilerFields.SEPARATOR);
